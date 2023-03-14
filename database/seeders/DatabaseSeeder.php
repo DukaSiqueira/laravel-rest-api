@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
          ]);
 
         $this->call([
-            PassportSeeder::class,
             LojasSeeder::class,
             ProdutosSeeder::class,
         ]);

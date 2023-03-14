@@ -23,7 +23,8 @@ return new class extends Migration
 
             $table->index('loja_id');
 
-            $table->foreign('loja_id')->references('id')->on('lojas');
+            $table->foreign('loja_id')->references('id')->on('lojas')
+                ->onDelete('cascade');
         });
     }
 
