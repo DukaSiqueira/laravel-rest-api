@@ -1,6 +1,7 @@
 # Laravel RESTful API 
 
-Este projeto é uma simples API crud feita em Laravel
+Este projeto têm como finalidade desenvolver endpoints de APIRest em PHP, Laravel e Mysql, juntamente com uma autenticação via JWT.
+Para a autenticação foi escolhido o Passport que pode ser facilmente instalado com o composer e é integrada ao Laravel.
 
 # Instalação do MySQL
 
@@ -102,4 +103,5 @@ A seguir utilize os seguintes comandos no diretório onde foi clonada a aplicaç
 1. composer install
 2. php artisan migrate
 3. php artisan db:seed
+3. php artisan passport:install
 ```
