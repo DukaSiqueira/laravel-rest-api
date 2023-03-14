@@ -41,7 +41,12 @@ class ProdutoController extends BaseController
  public function show($id)
     {
         try {
-            return response()->json(Produto::where('produtos.id', $id)->get());
+            $produto = Produto::where('produtos.id', $id)->get();
+            if (is_null($produto)) {
+                $data['message'] = 'Produto não encontrado';
+                return $this->sendError($data, 'Produto nãp encontrado.');
+            }
+            return response()->json($produto);
         } catch (\Exception $exception) {
             return response($exception->getMessage(), 500);
         }
