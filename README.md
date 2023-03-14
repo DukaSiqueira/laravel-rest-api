@@ -2,7 +2,9 @@
 
 Este projeto é uma simples API crud feita em Laravel
 
-# Configuração do MySQL no Windows
+# Instalação do MySQL
+
+#### 1. No Windows
 
 Faça o download do MySQL server (Segunda opção): https://dev.mysql.com/downloads/installer/
 
@@ -21,8 +23,9 @@ GRANT ALL PRIVILEGES ON nome_do_banco_de_dados.* TO 'nome_do_usuario'@'localhost
 FLUSH PRIVILEGES;
 ```
 
-# Configuração no Linux
+#### 2. No Linux
 
+Na linha de comando do Linux, digite os comandos a seguir:
 
 ```
 sudo apt-get update
@@ -47,6 +50,37 @@ GRANT ALL PRIVILEGES ON nome_do_banco_de_dados.* TO 'nome_do_usuario'@'localhost
 ```
 ```
 FLUSH PRIVILEGES;
+```
+
+# Instalação do PHP e composer
+
+#### No Windows
+
+#### Composer:
+##### 1. Download do Composer pelo link: https://getcomposer.org/download/
+##### 2. Abra o arquivo .exe e faça a instalação do composer
+##### 3. Digite o comando composer -v para verificar se foi instalado normalmente
+
+#### PHP:
+##### 1. Download da versão 8.2 (Thread Safe) do PHP: https://windows.php.net/download#php-8.2
+##### 2. Abra o arquivo .exe e faça a instalação do PHP
+##### 3. Digite o comando PHP -v para verificar se foi instalado normalmente
+
+#### No Linux
+
+#### Abra uma linha de comando no Linux e digite os comandos abaixo
+
+#### Composer: 
+
+```
+1. sudo apt-get install composer
+2. composer -v
+```
+
+#### PHP: 
+```
+1. sudo apt-get install php
+2. php -v
 ```
 
 # Clonando e configurando
