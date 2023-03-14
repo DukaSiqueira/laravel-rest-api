@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('nome_empresa', 55);
             $table->string('razao_social', 55);
-            $table->string('email', 500)->unique(true);
             $table->timestamps();
         });
     }

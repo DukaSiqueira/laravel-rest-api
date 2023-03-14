@@ -50,9 +50,4 @@ class RegisterController extends BaseController
             return $this->exceptionResponse($exception);
         }
     }
-
-    public function teste()
-    {
-        return "O acesso via validação de token funcionou". "\n" ."parabéns seu fdp";
-    }
 }
