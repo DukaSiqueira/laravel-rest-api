@@ -7,6 +7,7 @@ use Exception;
 
 class BaseController extends Controller
 {
+    // Controller utilizado para centralizar e padronizar alguns dos retornos
     public function sendResponse($data, $message)
     {
         $response = [
@@ -33,7 +34,7 @@ class BaseController extends Controller
 
     public function exceptionResponse(Exception $exception)
     {
-        return response([
+        return response()->json([
             'status' => $exception->getCode(),
             'message' => $exception->getMessage(),
             'file' => $exception->getFile(),

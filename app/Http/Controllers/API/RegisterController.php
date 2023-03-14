@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends BaseController
 {
+    // Controller utilizado para login e registro de usuários
     public function register(Request $request)
     {
         try {
