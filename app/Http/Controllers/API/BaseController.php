@@ -41,12 +41,4 @@ class BaseController extends Controller
             'line' => $exception->getLine(),
         ]);
     }
-
-    public function middlewareResponse($response)
-    {
-        return response()->json([
-            'status' => $response['code'],
-            'message' => $response['message']
-        ]);
-    }
 }

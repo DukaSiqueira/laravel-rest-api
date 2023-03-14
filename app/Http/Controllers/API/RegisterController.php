@@ -50,4 +50,13 @@ class RegisterController extends BaseController
             return $this->exceptionResponse($exception);
         }
     }
+
+    public function defaultValidation()
+    {
+        try {
+            return $this->sendError('Não autorizado', ['error' => 'Não autorizado']);
+        } catch (Exception $exception) {
+            return $this->exceptionResponse($exception);
+        }
+    }
 }

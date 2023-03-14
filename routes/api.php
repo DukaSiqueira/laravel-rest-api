@@ -12,7 +12,10 @@ Route::post('login', [RegisterController::class, 'login']);
 
 /* Grupo de rotas autenticado via token do Passport com scopes, que permite determinar
  qual acesso uma rota ou um grupo precisam para serem acessados */
-Route::group(['middleware' => ['auth:api', 'check-token:access']], function () {
+Route::group(['middleware' => ['auth:api', 'scopes:access']], function () {
     Route::apiResource('loja', LojaController::class);
     Route::apiResource('produto', ProdutoController::class);
 });
+
+// Rota default para validação de erros
+Route::get('default', [RegisterController::class, 'defaultValidation'])->name('default');
