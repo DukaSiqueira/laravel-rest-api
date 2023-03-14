@@ -42,9 +42,9 @@ class ProdutoController extends BaseController
     {
         try {
             $produto = Produto::where('produtos.id', $id)->get();
-            if (is_null($produto)) {
+            if ($produto->isEmpty()) {
                 $data['message'] = 'Produto não encontrado';
-                return $this->sendError($data, 'Produto nãp encontrado.');
+                return $this->sendError($data, 'Produto não encontrado.');
             }
             return response()->json($produto);
         } catch (\Exception $exception) {

@@ -37,7 +37,14 @@ class LojaController extends BaseController
     public function show($id)
     {
         try {
-            return response()->json(Loja::where('lojas.id', $id)->with('produtos')->get());
+            $loja = Loja::where('lojas.id', $id)->with('produtos')->get();
+
+            if ($loja->isEmpty()) {
+                $data['message'] = 'Produto não encontrado';
+                return $this->sendError($data, 'Loja não encontrado.');
+            }
+
+            return response()->json();
         } catch (\Exception $exception) {
             return response($exception->getMessage(), 500);
         }
