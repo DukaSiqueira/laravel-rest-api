@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 60);
-            $table->integer('valor');
+            $table->double('valor');
             $table->unsignedBigInteger('loja_id');
             $table->boolean('ativo');
             $table->timestamps();

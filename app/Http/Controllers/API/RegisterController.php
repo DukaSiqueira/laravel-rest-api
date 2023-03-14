@@ -44,7 +44,7 @@ class RegisterController extends BaseController
 
                 return $this->sendResponse($data, 'Login realizado com sucesso.');
             } else {
-                return $this->sendResponse('Não autorizado', ['error' => 'Não autorizado']);
+                return $this->sendError('Não autorizado', ['error' => 'Não autorizado']);
             }
         } catch (Exception $exception) {
             return $this->exceptionResponse($exception);
