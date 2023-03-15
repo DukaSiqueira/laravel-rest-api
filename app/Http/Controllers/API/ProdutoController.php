@@ -12,7 +12,12 @@ class ProdutoController extends BaseController
     public function index()
     {
         try {
-            return response()->json(Produto::all());
+            $produtos = Produto::all();
+            if ($produtos->isEmpty()) {
+                $data['message'] = 'Não há produtos cadastrados.';
+                return $this->sendError($data, 'Sem produtos.', 404);
+            }
+            return response()->json($produtos);
         } catch (\Exception $exception) {
             return response($exception->getMessage(), 500);
         }
@@ -44,7 +49,7 @@ class ProdutoController extends BaseController
             $produto = Produto::where('produtos.id', $id)->get();
             if ($produto->isEmpty()) {
                 $data['message'] = 'Produto não encontrado';
-                return $this->sendError($data, 'Produto não encontrado.');
+                return $this->sendError($data, 'Produto não encontrado.', 404);
             }
             return response()->json($produto);
         } catch (\Exception $exception) {
@@ -66,12 +71,12 @@ class ProdutoController extends BaseController
             if ((is_null($produto))) {
                 $data['code'] = 404;
                 $data['message'] = 'produto_id: '.$id.' não encontrado.';
-                return $this->sendError($data, 'Produto não encontrado.');
+                return $this->sendError($data, 'Produto não encontrado.', 404);
             }
 
-            $produto->nome = isset($validate['nome']) ? $validate['nome'] : $produto->nome;
-            $produto->valor = isset($validate['valor']) ? $validate['valor'] : $produto->valor;
-            $produto->ativo = isset($validate['ativo']) ? $validate['ativo'] : $produto->ativo;
+            $produto->nome = $validate['nome'] ?? $produto->nome;
+            $produto->valor = $validate['valor'] ?? $produto->valor;
+            $produto->ativo = $validate['ativo'] ?? $produto->ativo;
             $produto->save();
             $data['produto'] = $produto;
 

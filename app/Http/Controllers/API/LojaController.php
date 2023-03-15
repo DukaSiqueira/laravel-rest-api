@@ -11,7 +11,12 @@ class LojaController extends BaseController
     public function index()
     {
         try {
-            return response()->json(Loja::with('produtos')->get());
+            $lojas = Loja::with('produtos')->get();
+            if ($lojas->isEmpty()) {
+                $data['message'] = 'Não há lojas cadastradas.';
+                return $this->sendError($data, 'Sem lojas.', 404);
+            }
+            return response()->json($lojas);
         } catch (\Exception $exception) {
             return response($exception->getMessage(), 500);
         }
@@ -41,7 +46,7 @@ class LojaController extends BaseController
 
             if ($loja->isEmpty()) {
                 $data['message'] = 'Produto não encontrado';
-                return $this->sendError($data, 'Loja não encontrado.');
+                return $this->sendError($data, 'Loja não encontrado.', 404);
             }
 
             return response()->json();
@@ -64,12 +69,12 @@ class LojaController extends BaseController
             if (is_null($loja)) {
                 $data['code'] = 404;
                 $data['message'] = 'loja_id: '.$id.' não encontrada.';
-                return $this->sendError($data, 'Loja não encontrada.');
+                return $this->sendError($data, 'Loja não encontrada.', 404);
             }
 
 
-            $loja->nome_empresa = isset($validate['nome_empresa']) ? $validate['nome_empresa'] : $loja->nome_empresa;
-            $loja->razao_social = isset($validate['razao_social']) ? $validate['razao_social'] : $loja->razao_social;
+            $loja->nome_empresa = $validate['nome_empresa'] ?? $loja->nome_empresa;
+            $loja->razao_social = $validate['razao_social'] ?? $loja->razao_social;
             $loja->save();
 
             $data['loja'] = $loja;
