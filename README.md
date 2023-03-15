@@ -1,6 +1,6 @@
 # Projeto
 
-Este projeto consiste em uma API desenvolvida em Laravel 9, utilizando MySQL como banco de dados e autenticação JWT do Passport.
+Este projeto consiste em uma API desenvolvida em Laravel 9, utilizando MySQL como banco de dados e autenticação JWT do Passport. Os recursos dessa API incluem cadastrar e gerenciar lojas e os produtos dessa loja.
 
 
 ## Passport - Autenticação escolhida
