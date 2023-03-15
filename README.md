@@ -2,7 +2,8 @@
 
 Este projeto consiste em uma API desenvolvida em Laravel 9, utilizando MySQL como banco de dados e autenticação JWT do Passport.
 
-## Passport - Autenticação
+
+## Passport - Autenticação escolhida
 
 O sistema de autenticação Passport do Laravel 9 é uma biblioteca que facilita a implementação de autenticação OAuth2 em uma aplicação Laravel. Ele fornece rotas para autenticação, registro, recuperação de senha e outras funcionalidades comuns de autenticação. Além disso, ele permite a criação de tokens de acesso para usuários autenticados, que podem ser usados para acessar recursos protegidos pela API. Com o Passport, é possível integrar facilmente a autenticação em aplicativos móveis ou em outras aplicações que se comunicam com a API.
 
